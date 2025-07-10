@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Welcome to Your Dashboard, {{ user.username }}!</h1>
+    
+    <nav>
+        <ul>
+            <li><a href="{% url 'buy' %}">Buy property</a></li>
+            <li><a href="{% url 'sell' %}">Find Agent</a></li>
+        </ul>
+    </nav>
+    
+    {% comment %} <div>
+        <h2>Your Properties</h2>
+        <!-- You can display user-specific data here -->
+    </div> {% endcomment %}
+{%endblock%}

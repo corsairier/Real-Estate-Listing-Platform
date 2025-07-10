@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <header class="navbar">
+        <h1><a href="{% url 'home' %}">Real Estate</a></h1>
+        {% if user.is_authenticated %}
+            <nav>
+                {% if user.agent %}
+                    <a href="{% url 'agent_dashboard' %}">Agent Dashboard</a>
+                {% else %}
+                    <a href="{% url 'dashboard' %}">Dashboard</a>
+                {% endif %}
+                |
+                <a href="{% url 'logout' %}">Logout</a>
+            </nav>
+        {% endif %}
+    </header>
+    
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
